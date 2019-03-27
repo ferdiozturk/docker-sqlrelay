@@ -5,7 +5,7 @@ run sql-relay as docker container
 
 [sql-relay configure](http://sqlrelay.sourceforge.net/sqlrelay/admin/configguide.html)
 
-[configure example for mysql](https://github.com/BPing/docker-sqlrelay/blob/master/sqlrelay.conf)
+[configure example for mysql](https://github.com/ferdiozturk/docker-sqlrelay/blob/master/sqlrelay.conf)
 
 ## Usage
 To run the container, do the following(for example):
@@ -13,20 +13,20 @@ To run the container, do the following(for example):
 start 
 
 ```sh 
-docker run -p xx:xx -v /xx:/xx -t -i -d cbping/sqlrelay /bin/bash
+docker run -p xx:xx -v /xx:/xx -t -i -d foerdi/sqlrelay /bin/bash
 ``` 
 
 then 
 
 ```sh 
-[root@bf3648a633d1 /]# sqlr-start -config /xx/sqlrelay.conf -id xx
+[root@xxxxxxxxxxxx /]# sqlr-start -config /xx/sqlrelay.conf -id xx
 ``` 
 click `crtl+p+q` ,let container running in background 
 
 or 
 
 ```shell
-   docker run -p xx:xx -v /xx:/xx -t -i -d cbping/sqlrelay start -config /xx/sqlrelay.conf -id xx
+   docker run -p xx:xx -v /xx:/xx -t -i -d foerdi/sqlrelay start -config /xx/sqlrelay.conf -id xx
 ```
 
 
@@ -35,9 +35,9 @@ or
 
 To build the image, simply invoke
 
-    docker build github.com/Bping/docker-sqlrelay
+    docker build github.com/ferdiozturk/docker-sqlrelay
 
 A prebuilt container is also available in the docker index
 
-    docker pull cbping/sqlrelay
+    docker pull foerdi/sqlrelay
 
