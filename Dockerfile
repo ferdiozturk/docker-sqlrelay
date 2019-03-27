@@ -11,18 +11,18 @@ RUN yum -y install gcc-c++ make readline-devel openssl-devel krb5-devel libcurl-
 # download and tar sqlrelay
 RUN yum -y install wget && \
     cd /opt/ && \
-	wget http://downloads.sourceforge.net/sqlrelay/sqlrelay-1.1.0.tar.gz &&  \
-	wget http://downloads.sourceforge.net/rudiments/rudiments-1.0.5.tar.gz && \
+	wget http://downloads.sourceforge.net/sqlrelay/sqlrelay-1.4.0.tar.gz &&  \
+	wget http://downloads.sourceforge.net/rudiments/rudiments-1.1.0.tar.gz && \
     cd /opt/  && \
-    tar -xvf  rudiments-1.0.5.tar.gz && \
-    tar -xvf  sqlrelay-1.1.0.tar.gz
+    tar -xvf  rudiments-1.1.0.tar.gz && \
+    tar -xvf  sqlrelay-1.4.0.tar.gz
 
 # build and install sqlrelay
-RUN cd /opt/rudiments-1.0.5 &&\
+RUN cd /opt/rudiments-1.1.0 &&\
     ./configure --prefix=/opt/firstworks &&\
     make && make install
 
-RUN cd /opt/sqlrelay-1.1.0 && \ 
+RUN cd /opt/sqlrelay-1.4.0 && \ 
     ./configure --prefix=/opt/firstworks  --with-rudiments-prefix=/opt/firstworks \
     --disable-oracle --disable-postgresql --disable-sap --disable-odbc --disable-db2  --disable-firebird \
     --disable-informix --disable-router --disable-odbc-driver --disable-perl --disable-python --disable-ruby \
@@ -30,10 +30,10 @@ RUN cd /opt/sqlrelay-1.1.0 && \
     make && make install
 
 # Delete residual useless files and installed
-RUN rm -f /opt/rudiments-1.0.5.tar.gz && \
-    rm -f /opt/sqlrelay-1.1.0.tar.gz  && \
-    rm -rf /opt/rudiments-1.0.5       && \
-    rm -rf /opt/sqlrelay-1.1.0        && \
+RUN rm -f /opt/rudiments-1.1.0.tar.gz && \
+    rm -f /opt/sqlrelay-1.4.0.tar.gz  && \
+    rm -rf /opt/rudiments-1.1.0       && \
+    rm -rf /opt/sqlrelay-1.4.0        && \
     yum -y remove wget krb5-devel*  libcurl-devel*
 
 
