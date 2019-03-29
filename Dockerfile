@@ -1,6 +1,6 @@
-FROM centos
+FROM centos:latest
 
-MAINTAINER "Ferdi Oeztuerk <foerdi@gmail.com>"
+LABEL maintainer "Ferdi Oeztuerk <foerdi@gmail.com>"
 
 # download and extract sqlrelay binary distribution
 RUN yum -y install wget && \
